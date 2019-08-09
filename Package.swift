@@ -20,19 +20,3 @@ let package = Package(
         ])
     ]
 )
-
-#if canImport(PackageConfig)
-import PackageConfig
-
-let config = PackageConfig([
-    "komondor": [
-        "pre-push": "swift test",
-        "pre-commit": [
-            "swift test",
-            "swift run swiftlint autocorrect --path Sources/",
-            "git add .",
-        ],
-    ],
-]).write()
-#endif
-
